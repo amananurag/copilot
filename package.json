@@ -5,8 +5,9 @@
  "main": "server.js",
  "scripts": {
   "test": "echo \"Error: no test specified\" && exit 1",
-  "server": "node server.js"
-
+  "server": "node server.js",
+  "format": "prettier --write *.js\"",
+  "precommit": "lint-staged"
  },
  "keywords": [],
  "author": "",
@@ -17,5 +18,15 @@
   "prettier": "^2.2.1",
   "swagger-jsdoc": "^6.2.8",
   "swagger-ui-express": "^4.6.3"
+ },
+ "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "npm run format",
+      "git add"
+    ]
+  },
+ "devDependencies": {
+  "husky": "^8.0.3",
+  "lint-staged": "^13.2.2"
  }
 }
