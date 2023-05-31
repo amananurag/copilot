@@ -54,3 +54,35 @@ const has = (obj, key) => {
 
 console.log(loopKeys(person1));
 console.log(has(person1, 'x'));
+
+
+// use express to create a server
+const express = require('express');
+
+
+const swagger = require('./swagger');
+const app = express();
+
+require('./swagger')(app);
+/**
+ * @swagger
+ * /:
+ *   get:
+ *     summary: Get a greeting message
+ *     description: Retrieve a greeting message from the server
+ *     responses:
+ *       200:
+ *         description: A greeting message
+ *         content:
+ *           text/plain:
+ *             schema:
+ *               type: string
+ */
+app.get('/', (req, res) => {
+    res.send('Hello World from express server');
+  });
+  
+app.listen(8080, () => {
+    console.log('Server is running');
+}
+);
