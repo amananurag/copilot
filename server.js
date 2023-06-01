@@ -36,17 +36,12 @@ console.log(person.name);
 console.log("name" in person);
 console.log("age" in person);
 
-// create a custom object
-const person1 = {
-  x: "John",
-  y: 22,
-};
-exports.person1 = person1;
+
 
 // use express to create a server
 const express = require("express");
 
-const swagger = require("./swagger");
+
 const app = express();
 
 require("./swagger")(app);
@@ -69,7 +64,6 @@ app.get("/", (req, res) => {
 });
 
 app.listen(8080, () => {
-  console.log("Server is running");
+     console.log("Server is running");
 });
-
 // pre-commit hook is not working. need to check further
