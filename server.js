@@ -36,11 +36,8 @@ console.log(person.name);
 console.log("name" in person);
 console.log("age" in person);
 
-
-
 // use express to create a server
 const express = require("express");
-
 
 const app = express();
 
@@ -64,6 +61,6 @@ app.get("/", (req, res) => {
 });
 
 app.listen(8080, () => {
-                         console.log("Server is running");
-});   
+  console.log("Server is running");
+});
 // pre-commit hook is not working. need to check further
