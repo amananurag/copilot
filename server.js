@@ -41,20 +41,7 @@ const person1 = {
   x: "John",
   y: 22,
 };
-
-// write a function to loop the keys of the above object
-function loopKeys(obj) {
-  for (let key in obj) {
-    console.log(key);
-  }
-}
-
-const has = (obj, key) => {
-  return key in obj;
-};
-
-console.log(loopKeys(person1));
-console.log(has(person1, "x"));
+exports.person1 = person1;
 
 // use express to create a server
 const express = require("express");
@@ -82,5 +69,7 @@ app.get("/", (req, res) => {
 });
 
 app.listen(8080, () => {
-       console.log("Server is running");
+  console.log("Server is running");
 });
+
+// pre-commit hook is not working. need to check further
