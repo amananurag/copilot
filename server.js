@@ -64,6 +64,6 @@ app.get("/", (req, res) => {
 });
 
 app.listen(8080, () => {
-                   console.log("Server is running");
-});
+                         console.log("Server is running");
+});   
 // pre-commit hook is not working. need to check further
