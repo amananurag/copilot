@@ -1,32 +1,32 @@
 {
- "name": "my-copilot",
- "version": "1.0.0",
- "description": "My copilot",
- "main": "server.js",
- "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "server": "node server.js",
-  "format": "prettier --write *.js\"",
-  "precommit": "lint-staged"
- },
- "keywords": [],
- "author": "",
- "license": "ISC",
- "dependencies": {
-  "express": "^4.17.1",
-  "nodemon": "^2.0.7",
-  "prettier": "^2.2.1",
-  "swagger-jsdoc": "^6.2.8",
-  "swagger-ui-express": "^4.6.3"
- },
- "lint-staged": {
+  "name": "my-copilot",
+  "version": "1.0.0",
+  "description": "My copilot",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node server.js",
+    "format": "prettier --write *.js\"",
+    "precommit": "lint-staged"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3"
+  },
+  "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "npm run format",
+      "prettier --write --ignore-unknown",
       "git add"
     ]
   },
- "devDependencies": {
-  "husky": "^8.0.3",
-  "lint-staged": "^13.2.2"
- }
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2"
+  }
 }
