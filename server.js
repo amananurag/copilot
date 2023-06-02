@@ -40,26 +40,11 @@ console.log("age" in person);
 const express = require("express");
 
 const app = express();
+const router = require("./router/routes");
 
 require("./swagger")(app);
 
-/**
- * @swagger
- * /:
- *   get:
- *     responses:
- *       200:
- *         description: Welcome String
- *         content:
- *           application/json:
- *             schema:
- *               type: string
- *
- */
-app.get("/", (req, res) => {
-  res.send("Hello welcome from Express Server");
-});
-
+app.use("/", router);
 app.listen(8080, () => {
   console.log("Server is running");
 });
