@@ -4,7 +4,7 @@ const person = new Proxy(
   {
     set(target, key, value) {
       console.log(`setting  ${key} to ${value}`);
-      if (key == "name") {
+      if (key === "name") {
         target[key] = value;
       } else {
         throw new Error("You cannot set age to person");
@@ -15,7 +15,7 @@ const person = new Proxy(
       return target[key];
     },
     deleteProperty(target, key) {
-      if (key == "name") {
+      if (key === "name") {
         console.log(`deleting ${key}`);
         delete target[key];
       } else {
@@ -49,9 +49,8 @@ app.use("/", router);
 async function startServer() {
   try {
     await listen(8080);
-    console.log("Server started on port 8080");
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.log(error);
   }
 }
 startServer();
