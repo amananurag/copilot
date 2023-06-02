@@ -38,13 +38,19 @@ console.log("age" in person);
 
 // use express to create a server
 const express = require("express");
-
+const util = require("util");
 const app = express();
 const router = require("./router/routes");
-
+const listen = util.promisify(app.listen).bind(app);
 require("./swagger")(app);
 
 app.use("/", router);
-app.listen(8080, () => {
-  console.log("Server is running");
-});
+
+async function startServer() {
+  try {
+    await listen(8080);
+    console.log("Server started on port 8080");
+  } catch (err) {
+    console.error(err);
+  }
+}
