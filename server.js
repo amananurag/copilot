@@ -54,3 +54,4 @@ async function startServer() {
     console.error(err);
   }
 }
+startServer();
