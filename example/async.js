@@ -5,7 +5,6 @@ let response = "";
 async function fetchdatafromserver(url) {
   const response = await fetch(url);
   data = await response.json();
-  console.log(data);
   return data;
 }
 
@@ -20,3 +19,4 @@ async function fetchdatafromserver(url) {
     console.log(err);
   }
 })();
+console.log(response);

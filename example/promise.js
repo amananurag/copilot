@@ -1,27 +1,27 @@
-function asyncOperations() {
-  return new Promise((resolve) => {
+async function asyncOperations() {
+  return await new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve("done");
     }, 1000);
   });
 }
 
-function asyncOperations2() {
-  return new Promise((resolve) => {
+async function asyncOperations2() {
+  return await new Promise((resolve) => {
     setTimeout(() => {
       resolve("done2");
     }, 500);
   });
 }
 
-function asyncOperations3() {
-  return new Promise((resolve, reject) => {
+async function asyncOperations3() {
+  return await new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve("done3");
     }, 1500);
   });
 }
-
+// promise chaining - return is important else fulfillment handler will be undefined
 const result = asyncOperations()
   .then((result) => {
     console.log(result);
