@@ -29,3 +29,39 @@ Promise.all([asyncOperations(), asyncOperations2(), asyncOperations3()])
   .catch((error) => {
     console.log(error);
   });
+
+function asyncOperationsFetch() {
+  return fetch("https://jsonplaceholder.typicode.com/todos/1").then(
+    (response, error) => {
+      console.log(response.json());
+      response.json();
+    }
+  );
+}
+
+function asyncOperationsFetch2() {
+  return fetch("https://jsonplaceholder.typicode.com/todos/1").then(
+    (result) => {
+      result.json();
+    }
+  );
+}
+
+function asyncOperationsFetch3() {
+  return fetch("https://jsonplaceholder.typicode.com/todos/1").then(
+    (result) => {
+      result.json();
+    }
+  );
+}
+Promise.all([
+  asyncOperationsFetch(),
+  asyncOperationsFetch2(),
+  asyncOperationsFetch3(),
+])
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.log(error);
+  });

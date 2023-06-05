@@ -14,9 +14,7 @@ async function fetchdatafromserver(url) {
     response = await fetchdatafromserver(
       "https://jsonplaceholder.typicode.com/todos/1"
     );
-    console.log(response);
   } catch (err) {
     console.log(err);
   }
 })();
-console.log(response);
