@@ -32,8 +32,7 @@ Promise.all([asyncOperations(), asyncOperations2(), asyncOperations3()])
 
 function asyncOperationsFetch() {
   return fetch("https://jsonplaceholder.typicode.com/todos/1").then(
-    (response, error) => {
-      console.log(response.json());
+    (response) => {
       response.json();
     }
   );
@@ -42,7 +41,7 @@ function asyncOperationsFetch() {
 function asyncOperationsFetch2() {
   return fetch("https://jsonplaceholder.typicode.com/todos/1").then(
     (result) => {
-      result.json();
+      return result.json();
     }
   );
 }
@@ -50,7 +49,7 @@ function asyncOperationsFetch2() {
 function asyncOperationsFetch3() {
   return fetch("https://jsonplaceholder.typicode.com/todos/1").then(
     (result) => {
-      result.json();
+      return result.json();
     }
   );
 }

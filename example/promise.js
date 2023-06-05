@@ -22,7 +22,20 @@ async function asyncOperations3() {
   });
 }
 // promise chaining - return is important else fulfillment handler will be undefined
-const result = asyncOperations().then((result) => {
-  console.log(result);
-  return result;
-});
+const result = asyncOperations()
+  .then((result) => {
+    console.log(result);
+    return asyncOperations2();
+  })
+  .then((result) => {
+    console.log(result);
+    return asyncOperations3();
+  })
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+console.log(result);
