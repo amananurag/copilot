@@ -7,9 +7,9 @@ async function asyncOperations() {
 }
 
 async function asyncOperations2() {
-  return await new Promise((resolve) => {
+  return await new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve("done2");
+      reject("done2");
     }, 500);
   });
 }
@@ -37,5 +37,3 @@ const result = asyncOperations()
   .catch((error) => {
     console.log(error);
   });
-
-console.log(result);

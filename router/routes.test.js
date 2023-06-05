@@ -11,3 +11,4 @@ describe("GET /", () => {
     expect(response.text).toBe("Hello welcome from Express Server");
   });
 });
+// explore test cases and folder structure for node app
