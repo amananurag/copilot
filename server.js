@@ -44,7 +44,6 @@ const app = express();
 const router = require("./router/routes");
 const listen = util.promisify(app.listen).bind(app);
 require("./swagger")(app);
-// Middleware to parse JSON request body
 
 app.use("/", router);
 
