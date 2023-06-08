@@ -1,9 +1,9 @@
 const MongoConnect = require("./../config.js");
-
+// create a new object with Singleton class
 const connection = new MongoConnect();
 
 const result = connection
-  .connectToMongoDB("sample", "demo", "insertOne", { commit: "Hello World!" })
+  .connectToMongoDB("insertOne", { commit: "Hello World!" })
   .then((result) => {
     console.log(JSON.stringify(result));
   })

@@ -39,10 +39,12 @@ console.log("age" in person);
 // use express to create a server
 const express = require("express");
 const util = require("util");
+
 const app = express();
 const router = require("./router/routes");
 const listen = util.promisify(app.listen).bind(app);
 require("./swagger")(app);
+// Middleware to parse JSON request body
 
 app.use("/", router);
 

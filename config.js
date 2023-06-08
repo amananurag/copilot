@@ -1,18 +1,24 @@
+require("dotenv").config();
+
 class MongoConnect {
   constructor() {
-    if (MongoConnect.instance === undefined) {
+    if (!MongoConnect.instance) {
+      // set instance to this
       MongoConnect.instance = this;
+      this.username = process.env.DB_USERNAME;
+      this.password = process.env.DB_PASSWORD;
       this.mongoclient = require("mongodb").MongoClient;
-      this.uri =
-        "mongodb+srv://amananurag07:Amandocs07@cluster0" +
-        ".b73a6db.mongodb.net/sample?retryWrites=true&w=majority";
+
+      this.uri = `mongodb+srv://${this.username}:${this.password}@cluster0.b73a6db.mongodb.net/sample?retryWrites=true&w=majority`;
     }
     return MongoConnect.instance;
   }
 
-  async connectToMongoDB(dbName, collectionName, operation, documents) {
+  async connectToMongoDB(operation, documents) {
     try {
       const client = await this.mongoclient.connect(this.uri);
+      const dbName = "sample";
+      const collectionName = "demo";
       const collection = await client.db(dbName).collection(collectionName);
       let result = "";
       if (operation === "insertOne") {
@@ -41,5 +47,6 @@ class MongoConnect {
     }
   }
 }
+// all object will have same copy of function.
 
 module.exports = MongoConnect;
