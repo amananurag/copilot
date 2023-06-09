@@ -38,10 +38,10 @@ class MongoConnect {
       } else if (operation === "deleteMany") {
         result = await collection.deleteMany(documents);
       }
-      return result;
       console.log("Connected to MongoDB");
       // Perform operations on the database
       client.close();
+      return result;
     } catch (error) {
       console.error("Error connecting to MongoDB:", error);
     }
