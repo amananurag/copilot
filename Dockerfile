@@ -1,4 +1,4 @@
-FROM node:14.17.0-alpine3.13
+FROM node:20.0-bullseye-slim
 WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
