@@ -21,7 +21,6 @@ function hellorouter(router) {
 
   router.post("/api/posts", (req, res) => {
     const { title } = req.body;
-    // create a new object with Singleton class
 
     const result = mongoConnect
       .connectToMongoDB("insertOne", { commit: title })
