@@ -1,4 +1,6 @@
-require("dotenv").config();
+import dotenv from "dotenv";
+import { MongoClient } from "mongodb";
+dotenv.config();
 
 class MongoConnect {
   constructor() {
@@ -7,8 +9,6 @@ class MongoConnect {
       MongoConnect.instance = this;
       this.username = process.env.DB_USERNAME;
       this.password = process.env.DB_PASSWORD;
-      this.mongoclient = require("mongodb").MongoClient;
-
       this.uri = `mongodb+srv://${this.username}:${this.password}@cluster0.b73a6db.mongodb.net/sample?retryWrites=true&w=majority`;
     }
     return MongoConnect.instance;
@@ -16,7 +16,7 @@ class MongoConnect {
 
   async connectToMongoDB(operation, documents) {
     try {
-      const client = await this.mongoclient.connect(this.uri);
+      const client = await MongoClient.connect(this.uri);
       const dbName = "sample";
       const collectionName = "demo";
       const collection = await client.db(dbName).collection(collectionName);
@@ -49,4 +49,4 @@ class MongoConnect {
 }
 // all object will have same copy of function.
 
-module.exports = new MongoConnect();
+export default new MongoConnect();

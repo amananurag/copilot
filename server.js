@@ -29,21 +29,15 @@ const person = new Proxy(
   }
 );
 
-person.name = "John";
-console.log(person.name);
-delete person.name;
-console.log(person.name);
-console.log("name" in person);
-console.log("age" in person);
-
 // use express to create a server
-const express = require("express");
-const util = require("util");
+import express from "express";
+import util from "util";
+import router from "./router/routes.js";
+import { swagger } from "./swagger.js";
 
 const app = express();
-const router = require("./router/routes");
+swagger(app);
 const listen = util.promisify(app.listen).bind(app);
-require("./swagger")(app);
 
 app.use("/", router);
 

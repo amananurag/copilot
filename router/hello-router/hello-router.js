@@ -1,6 +1,5 @@
-const helloController = require("./../../controller/hello/hello-controller");
-
-const mongoConnect = require("./../../config.js");
+import helloController from "./../../controller/hello/hello-controller.js";
+import mongoConnect from "./../../config.js";
 function hellorouter(router) {
   /**
    * @swagger
@@ -36,4 +35,4 @@ function hellorouter(router) {
   return router;
 }
 
-module.exports = hellorouter;
+export default hellorouter;
