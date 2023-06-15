@@ -1,11 +1,10 @@
-const router = require("express").Router();
-
-const bodyParser = require("body-parser");
-
-const hellorouter = require("./hello-router/hello-router");
+import express from "express";
+import bodyParser from "body-parser";
+import hellorouter from "./hello-router/hello-router.js";
+const router = express.Router();
 
 router.use(bodyParser.json());
 
 router.use("/hello", hellorouter(router));
 
-module.exports = router;
+export default router;

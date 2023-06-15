@@ -7,4 +7,4 @@ class HelloService {
     return res.send(this.greeting);
   }
 }
-module.exports = new HelloService();
+export default new HelloService();

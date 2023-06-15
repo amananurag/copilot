@@ -1,4 +1,4 @@
-const helloService = require("../../service/hello/hello-service");
+import helloService from "./../../service/hello/hello-service.js";
 class HelloController {
   constructor() {}
   sayHello(req, res) {
@@ -6,4 +6,4 @@ class HelloController {
   }
 }
 
-module.exports = new HelloController();
+export default new HelloController();

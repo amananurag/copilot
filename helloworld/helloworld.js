@@ -1,4 +1,4 @@
-const MongoConnect = require("./../config.js");
+import { MongoConnect } from "./../config.js";
 // create a new object with Singleton class
 const connection = new MongoConnect();
 
