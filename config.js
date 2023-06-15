@@ -49,4 +49,4 @@ class MongoConnect {
 }
 // all object will have same copy of function.
 
-module.exports = MongoConnect;
+module.exports = new MongoConnect();

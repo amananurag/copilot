@@ -1,6 +1,6 @@
 const helloController = require("./../../controller/hello/hello-controller");
 
-const MongoConnect = require("./../../config.js");
+const mongoConnect = require("./../../config.js");
 function hellorouter(router) {
   /**
    * @swagger
@@ -22,9 +22,8 @@ function hellorouter(router) {
   router.post("/api/posts", (req, res) => {
     const { title } = req.body;
     // create a new object with Singleton class
-    const connection = new MongoConnect();
 
-    const result = connection
+    const result = mongoConnect
       .connectToMongoDB("insertOne", { commit: title })
       .then((result) => {
         console.log(JSON.stringify(result));
