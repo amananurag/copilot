@@ -1,5 +1,6 @@
-import helloController from "./../../controller/hello/hello-controller.js";
-import mongoConnect from "./../../config.js";
+import helloController from "../../controller/hello/hello-controller.js";
+import mongoConnect from "../../config.js";
+import authController from "../../controller/auth/auth-controller.js";
 function hellorouter(router) {
   /**
    * @swagger
@@ -15,7 +16,10 @@ function hellorouter(router) {
    *
    */
   router.get("/", (req, res) => {
-    return helloController.sayHello(req, res);
+    if (authController.isAuhenticated) {
+      return helloController.sayHello(req, res);
+    }
+    return res.send(authController.isAuhenticated);
   });
 
   router.post("/api/posts", (req, res) => {
