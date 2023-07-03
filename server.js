@@ -40,7 +40,7 @@ swagger(app);
 const listen = util.promisify(app.listen).bind(app);
 
 app.use("/", router);
-app.use(cookieParser());
+
 async function startServer() {
   try {
     await listen(8080);
