@@ -34,7 +34,6 @@ import express from "express";
 import util from "util";
 import router from "./router/routes.js";
 import { swagger } from "./swagger.js";
-import cookieParser from "cookie-parser";
 const app = express();
 swagger(app);
 const listen = util.promisify(app.listen).bind(app);
