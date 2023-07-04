@@ -34,10 +34,11 @@ import express from "express";
 import util from "util";
 import router from "./router/routes.js";
 import { swagger } from "./swagger.js";
+import validateApiKey from "./utilities/validation/validate-apikey.js";
 const app = express();
 swagger(app);
 const listen = util.promisify(app.listen).bind(app);
-
+app.use(validateApiKey);
 app.use("/", router);
 
 async function startServer() {
