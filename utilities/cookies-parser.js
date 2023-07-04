@@ -4,7 +4,7 @@ function cookiesParser(cookies) {
   if (cookies) {
     const cookieArray = cookies.split(";");
     // ['cookie_1=value_1','cookie_2=value_2', 'session_id=1234']
-    console.log("cookieArray:", cookieArray);
+
     const cookieObj = {};
 
     for (let i = 0; i < cookieArray.length; i++) {
@@ -14,7 +14,6 @@ function cookiesParser(cookies) {
     }
 
     session_id = cookieObj["session_id"];
-    console.log("session_id:", session_id);
   }
 
   return session_id;

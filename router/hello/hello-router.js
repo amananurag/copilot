@@ -18,9 +18,8 @@ function hellorouter(router) {
    */
   router.get("/", (req, res) => {
     const cookies = req.headers.cookie;
+
     const session_id = cookiesParser(cookies);
-    console.log(session_id);
-    console.log("auth sessionId :" + authController.sessionId);
     if (session_id && session_id === authController.sessionId) {
       return helloController.sayHello(req, res);
     }
