@@ -33,7 +33,7 @@ Promise.all([asyncOperations(), asyncOperations2(), asyncOperations3()])
 function asyncOperationsFetch() {
   return fetch("https://jsonplaceholder.typicode.com/todos/1").then(
     (response) => {
-      response.json();
+      return response.json();
     }
   );
 }

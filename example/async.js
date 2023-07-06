@@ -18,3 +18,4 @@ async function fetchdatafromserver(url) {
     console.log(err);
   }
 })();
+console.log(response);
