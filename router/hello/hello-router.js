@@ -1,7 +1,6 @@
 import helloController from "../../controller/hello/hello-controller.js";
 import mongoConnect from "../../config.js";
-import authController from "../../controller/auth/auth-controller.js";
-import cookiesParser from "../../utilities/cookies-parser.js";
+
 function hellorouter(router) {
   /**
    * @swagger
@@ -16,14 +15,9 @@ function hellorouter(router) {
    *               type: string
    *
    */
-  router.get("/", (req, res) => {
-    const cookies = req.headers.cookie;
 
-    const session_id = cookiesParser(cookies);
-    if (session_id && session_id === authController.sessionId) {
-      return helloController.sayHello(req, res);
-    }
-    return res.send("Please Authenticate");
+  router.get("/", (req, res) => {
+    return helloController.sayHello(req, res);
   });
 
   router.post("/api/posts", (req, res) => {

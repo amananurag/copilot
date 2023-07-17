@@ -1,5 +1,12 @@
-function cookiesParser(cookies) {
+import authController from "./../controller/auth/auth-controller.js";
+
+function cookiesParser(req, res, next) {
   let session_id = "";
+  let cookies = req.headers.cookie;
+  if (!authController.sessionId) {
+    next();
+    return;
+  }
   // res.headers.cookie or cookies ( single string separated by ;) = ["cookie_1=value_1; cookie_2=value_2; session_id=1234"]
   if (cookies) {
     const cookieArray = cookies.split(";");
@@ -14,9 +21,13 @@ function cookiesParser(cookies) {
     }
 
     session_id = cookieObj["session_id"];
+    // console.log(session_id + 'hello' + authController.sessionId)
   }
-
-  return session_id;
+  if (session_id && session_id === authController.sessionId) {
+    next();
+  } else {
+    return res.status(401).send("Unauthorized");
+  }
 }
 
 export default cookiesParser;

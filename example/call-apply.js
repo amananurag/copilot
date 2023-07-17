@@ -7,7 +7,6 @@ const user = {
 };
 // call can only pass on1 arguement
 hello.call(user, "hello");
-
 function hello2(message, message2) {
   console.log(`${message} ${this.name} ${message2}`);
 }

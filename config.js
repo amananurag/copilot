@@ -5,7 +5,7 @@ dotenv.config();
 class MongoConnect {
   constructor() {
     if (!MongoConnect.instance) {
-      // set instance to this
+      // set instance to this.
       MongoConnect.instance = this;
       this.username = process.env.DB_USERNAME;
       this.password = process.env.DB_PASSWORD;

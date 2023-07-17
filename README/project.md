@@ -22,6 +22,10 @@ created package.json file
 
 10. Helloworld is added as a MVP . To be scalled in similar structure
 
-11. exmaple >> folder is for self notes and practice
+11. Api key validation middleware function is implememted
 
-12. Items in open-query >>should be resolved in coming days
+12. Added a custom cookie parser - Need to add it as middleware function.
+
+13. exmaple >> folder is for self notes and practice
+
+14. Items in open-query >>should be resolved in coming days

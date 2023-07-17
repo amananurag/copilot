@@ -35,10 +35,12 @@ import util from "util";
 import router from "./router/routes.js";
 import { swagger } from "./swagger.js";
 import validateApiKey from "./utilities/validation/validate-apikey.js";
+import cookiesParser from "./utilities/cookies-parser.js";
 const app = express();
 swagger(app);
 const listen = util.promisify(app.listen).bind(app);
 app.use(validateApiKey);
+app.use(cookiesParser);
 app.use("/", router);
 
 async function startServer() {
