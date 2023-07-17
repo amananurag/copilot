@@ -24,7 +24,7 @@ created package.json file
 
 11. Api key validation middleware function is implememted
 
-12. Added a custom cookie parser - Need to add it as middleware function.
+12. Added a custom cookie parser - added as a middleware function.
 
 13. exmaple >> folder is for self notes and practice
 
