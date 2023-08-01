@@ -1,6 +1,6 @@
 class Singleton {
   constructor() {
-    if (Singleton.instance == undefined) {
+    if (!Singleton.instance) {
       Singleton.instance = this;
       this.name = "John";
       this.score = 1234;
