@@ -7,8 +7,8 @@ class Authcontroller {
     this.sessionId = "";
   }
   login(req, res) {
-    //  const req = hashUserCredentials(req);
-    this.isAuhenticated = authService.login(req, res);
+    const payload = hashUserCredentials(req);
+    this.isAuhenticated = authService.login(payload, res);
     if (this.isAuhenticated) {
       this.sessionId = uuidv4();
       res.cookie("session_id", this.sessionId, { httpOnly: true });
