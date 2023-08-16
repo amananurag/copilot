@@ -1,12 +1,13 @@
 import authService from "./../../service/auth/auth-service.js";
 import { v4 as uuidv4 } from "uuid";
-
+import hashUserCredentials from "../../utilities/hash/hashUserCredentials.js";
 class Authcontroller {
   constructor() {
     this.isAuhenticated = false;
     this.sessionId = "";
   }
   login(req, res) {
+    //  const req = hashUserCredentials(req);
     this.isAuhenticated = authService.login(req, res);
     if (this.isAuhenticated) {
       this.sessionId = uuidv4();

@@ -3,12 +3,18 @@ import authController from "./../controller/auth/auth-controller.js";
 function cookiesParser(req, res, next) {
   let session_id = "";
   let cookies = req.headers.cookie;
+
   if (!authController.sessionId) {
-    next();
-    return;
+    if (req.url === "/login") {
+      next();
+      return;
+    } else {
+      res.status(401).send("Unauthorized");
+    }
   }
   // res.headers.cookie or cookies ( single string separated by ;) = ["cookie_1=value_1; cookie_2=value_2; session_id=1234"]
   if (cookies) {
+    console.log("inside cookie" + cookies);
     const cookieArray = cookies.split(";");
     // ['cookie_1=value_1','cookie_2=value_2', 'session_id=1234']
 
