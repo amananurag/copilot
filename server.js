@@ -37,9 +37,21 @@ import { swagger } from "./swagger.js";
 import validateApiKey from "./api-middleware/validation/validate-apikey.js";
 import cookiesParser from "./api-middleware/cookies-parser.js";
 import noHandlerFound from "./api-middleware/validation/noHandlerException.js";
+import fs from "fs";
+import https from "https";
 const app = express();
+
+// Read the private key and certificate files
+const privateKey = fs.readFileSync("./private-key.pem", "utf8");
+const certificate = fs.readFileSync("./certificate.pem", "utf8");
+
+const credentials = { key: privateKey, cert: certificate };
+
+// Create an HTTPS server
+const httpsServer = https.createServer(credentials, app);
+
 swagger(app);
-const listen = util.promisify(app.listen).bind(app);
+const listen = util.promisify(httpsServer.listen).bind(httpsServer);
 app.use(validateApiKey);
 app.use(cookiesParser);
 app.use(noHandlerFound);
@@ -47,7 +59,7 @@ app.use("/", router);
 
 async function startServer() {
   try {
-    await listen(8080);
+    await listen(443);
   } catch (error) {
     console.log(error);
   }
