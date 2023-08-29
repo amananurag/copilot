@@ -29,3 +29,7 @@ created package.json file
 13. exmaple >> folder is for self notes and practice
 
 14. Items in open-query >>should be resolved in coming days
+
+15. Added a middleware noHandlerFound for no handler exception . For URIs that are 404 not found.
+
+16. precommit hook config is added

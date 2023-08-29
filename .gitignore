@@ -3,7 +3,7 @@ node_modules/
 snyk.exe
 utilities/key-gen.js
 ps-collection
-example/duplicity.js
+
 open-query/new-tech.md
 private-key.pem
 certificate.pem
